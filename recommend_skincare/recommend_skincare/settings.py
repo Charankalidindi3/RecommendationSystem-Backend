@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'Items',
+    'Products',
     'Users',
+    'UserActivity',
     'rest_framework',
 ]
 
@@ -87,6 +88,12 @@ DATABASES = {
         'PORT': '3306',
 
     }
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'EXCEPTION_HANDLER':'api.utils.custom_exception_handler',
 }
 
 
